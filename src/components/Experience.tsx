@@ -1,4 +1,5 @@
 import { Briefcase, Calendar, MapPin } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const experiences = [
   {
@@ -46,12 +47,21 @@ const experiences = [
 ];
 
 const Experience = () => {
+  const headerAnimation = useScrollAnimation();
+
   return (
     <section className="py-20 md:py-32 bg-background" id="experience">
       <div className="container px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16 animate-fade-in-up">
+          <div 
+            ref={headerAnimation.ref}
+            className={`text-center mb-16 transition-all duration-700 ${
+              headerAnimation.isVisible 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Work <span className="gradient-text">Experience</span>
             </h2>
@@ -69,58 +79,75 @@ const Experience = () => {
             {/* Experience items */}
             <div className="space-y-12">
               {experiences.map((exp, index) => (
-                <div 
+                <ExperienceItem 
                   key={index}
-                  className={`relative ${index % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right'}`}
-                  style={{ animationDelay: `${index * 0.3}s` }}
-                >
-                  <div className={`md:grid md:grid-cols-2 gap-8 items-center ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
-                    {/* Content */}
-                    <div className={index % 2 === 0 ? 'md:text-right' : 'md:col-start-2'}>
-                      <div className={`bg-card rounded-2xl p-6 md:p-8 shadow-soft border border-border hover:shadow-hard hover:scale-105 transition-all duration-300 cursor-pointer ${index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'}`}>
-                        <div className="flex items-start gap-3 mb-4">
-                          <div className={`p-2 rounded-lg ${exp.color === 'primary' ? 'bg-primary/10' : exp.color === 'secondary' ? 'bg-secondary/10' : 'bg-accent/10'}`}>
-                            <Briefcase className={`h-5 w-5 ${exp.color === 'primary' ? 'text-primary' : exp.color === 'secondary' ? 'text-secondary' : 'text-accent'}`} />
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="text-xl md:text-2xl font-bold mb-1">{exp.title}</h3>
-                            <p className="text-lg font-semibold text-primary mb-2">{exp.company}</p>
-                            <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
-                              <span className="flex items-center gap-1">
-                                <Calendar className="h-4 w-4" />
-                                {exp.period}
-                              </span>
-                              <span className="flex items-center gap-1">
-                                <MapPin className="h-4 w-4" />
-                                {exp.location}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <ul className="space-y-2 text-muted-foreground">
-                          {exp.achievements.map((achievement, i) => (
-                            <li key={i} className="flex gap-2 text-sm md:text-base">
-                              <span className="text-primary mt-1">•</span>
-                              <span>{achievement}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    {/* Timeline dot */}
-                    <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center justify-center">
-                      <div className={`w-6 h-6 rounded-full ${exp.color === 'primary' ? 'bg-primary' : exp.color === 'secondary' ? 'bg-secondary' : 'bg-accent'} border-4 border-background shadow-medium`} />
-                    </div>
-                  </div>
-                </div>
+                  exp={exp}
+                  index={index}
+                />
               ))}
             </div>
           </div>
         </div>
       </div>
     </section>
+  );
+};
+
+const ExperienceItem = ({ exp, index }: { exp: typeof experiences[0], index: number }) => {
+  const animation = useScrollAnimation();
+  const isLeft = index % 2 === 0;
+
+  return (
+    <div 
+      ref={animation.ref}
+      className={`relative transition-all duration-700 ${
+        animation.isVisible 
+          ? 'opacity-100 translate-x-0' 
+          : `opacity-0 ${isLeft ? '-translate-x-12' : 'translate-x-12'}`
+      }`}
+      style={{ transitionDelay: `${index * 150}ms` }}
+    >
+      <div className={`md:grid md:grid-cols-2 gap-8 items-center ${isLeft ? '' : 'md:flex-row-reverse'}`}>
+        {/* Content */}
+        <div className={isLeft ? 'md:text-right' : 'md:col-start-2'}>
+          <div className={`bg-card rounded-2xl p-6 md:p-8 shadow-soft border border-border hover:shadow-hard hover:scale-105 transition-all duration-300 cursor-pointer ${isLeft ? 'md:mr-8' : 'md:ml-8'}`}>
+            <div className="flex items-start gap-3 mb-4">
+              <div className={`p-2 rounded-lg ${exp.color === 'primary' ? 'bg-primary/10' : exp.color === 'secondary' ? 'bg-secondary/10' : 'bg-accent/10'}`}>
+                <Briefcase className={`h-5 w-5 ${exp.color === 'primary' ? 'text-primary' : exp.color === 'secondary' ? 'text-secondary' : 'text-accent'}`} />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl md:text-2xl font-bold mb-1">{exp.title}</h3>
+                <p className="text-lg font-semibold text-primary mb-2">{exp.company}</p>
+                <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-1">
+                    <Calendar className="h-4 w-4" />
+                    {exp.period}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <MapPin className="h-4 w-4" />
+                    {exp.location}
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <ul className="space-y-2 text-muted-foreground">
+              {exp.achievements.map((achievement, i) => (
+                <li key={i} className="flex gap-2 text-sm md:text-base">
+                  <span className="text-primary mt-1">•</span>
+                  <span>{achievement}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Timeline dot */}
+        <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center justify-center">
+          <div className={`w-6 h-6 rounded-full ${exp.color === 'primary' ? 'bg-primary' : exp.color === 'secondary' ? 'bg-secondary' : 'bg-accent'} border-4 border-background shadow-medium`} />
+        </div>
+      </div>
+    </div>
   );
 };
 

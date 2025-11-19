@@ -1,12 +1,24 @@
 import { Award, Star } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Awards = () => {
+  const headerAnimation = useScrollAnimation();
+  const cardAnimation = useScrollAnimation();
+  const achievementsAnimation = useScrollAnimation();
+
   return (
     <section className="py-20 md:py-32 bg-muted/30" id="awards">
       <div className="container px-6">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12 animate-fade-in-up">
+          <div 
+            ref={headerAnimation.ref}
+            className={`text-center mb-12 transition-all duration-700 ${
+              headerAnimation.isVisible 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Awards & <span className="gradient-text">Recognition</span>
             </h2>
@@ -14,7 +26,14 @@ const Awards = () => {
           </div>
 
           {/* Award Card */}
-          <div className="relative animate-scale-in">
+          <div 
+            ref={cardAnimation.ref}
+            className={`relative transition-all duration-700 ${
+              cardAnimation.isVisible 
+                ? 'opacity-100 scale-100' 
+                : 'opacity-0 scale-95'
+            }`}
+          >
             {/* Background glow */}
             <div className="absolute -inset-4 gradient-bg-primary rounded-3xl blur-2xl opacity-20" />
             
@@ -63,7 +82,14 @@ const Awards = () => {
           </div>
 
           {/* Additional achievements */}
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <div 
+            ref={achievementsAnimation.ref}
+            className={`grid md:grid-cols-3 gap-6 mt-12 transition-all duration-700 ${
+              achievementsAnimation.isVisible 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
             <div className="bg-card rounded-xl p-6 text-center shadow-soft border border-border hover:shadow-hard hover:scale-105 transition-all duration-300 cursor-pointer">
               <div className="text-3xl mb-2">🎯</div>
               <div className="text-xl font-bold gradient-text mb-1">5x-6x</div>

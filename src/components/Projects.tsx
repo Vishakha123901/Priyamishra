@@ -1,4 +1,5 @@
 import { TrendingUp, Users, Eye, Target } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const projects = [
   {
@@ -90,12 +91,21 @@ const projects = [
 ];
 
 const Projects = () => {
+  const headerAnimation = useScrollAnimation();
+
   return (
     <section className="py-20 md:py-32 bg-background" id="projects">
       <div className="container px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16 animate-fade-in-up">
+          <div 
+            ref={headerAnimation.ref}
+            className={`text-center mb-16 transition-all duration-700 ${
+              headerAnimation.isVisible 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Projects & <span className="gradient-text">Case Studies</span>
             </h2>
@@ -107,68 +117,79 @@ const Projects = () => {
 
           {/* Projects Grid */}
           <div className="grid gap-8">
-            {projects.map((project, index) => {
-              const Icon = project.icon;
-              return (
-              <div 
-                key={index}
-                className="bg-card rounded-2xl p-6 md:p-8 shadow-soft border border-border hover:shadow-hard hover:scale-105 transition-all duration-300 cursor-pointer animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                  <div className="flex flex-col md:flex-row gap-6">
-                    {/* Icon & Type */}
-                    <div className="flex md:flex-col items-center md:items-start gap-4 md:gap-2">
-                      <div className="p-4 bg-primary/10 rounded-xl">
-                        <Icon className="h-8 w-8 text-primary" />
-                      </div>
-                      <div className="md:text-center">
-                        <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                          {project.type}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex-1 space-y-4">
-                      {/* Title */}
-                      <h3 className="text-2xl md:text-3xl font-bold">{project.title}</h3>
-
-                      {/* Metrics */}
-                      <div className="flex flex-wrap gap-4">
-                        {project.metrics.map((metric, i) => (
-                          <div 
-                            key={i}
-                            className={`px-4 py-2 rounded-lg ${
-                              metric.color === 'primary' 
-                                ? 'bg-primary/10 text-primary' 
-                                : metric.color === 'secondary' 
-                                ? 'bg-secondary/10 text-secondary' 
-                                : 'bg-accent/10 text-accent'
-                            }`}
-                          >
-                            <div className="text-xl md:text-2xl font-bold">{metric.value}</div>
-                            <div className="text-xs font-medium opacity-80">{metric.label}</div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Achievements */}
-                      <ul className="space-y-2 text-muted-foreground">
-                        {project.achievements.map((achievement, i) => (
-                          <li key={i} className="flex gap-2 text-sm md:text-base">
-                            <span className="text-primary mt-1 flex-shrink-0">•</span>
-                            <span>{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            {projects.map((project, index) => (
+              <ProjectCard key={index} project={project} index={index} />
+            ))}
           </div>
         </div>
       </div>
     </section>
+  );
+};
+
+const ProjectCard = ({ project, index }: { project: typeof projects[0], index: number }) => {
+  const animation = useScrollAnimation();
+  const Icon = project.icon;
+  const isLeft = index % 2 === 0;
+
+  return (
+    <div 
+      ref={animation.ref}
+      className={`bg-card rounded-2xl p-6 md:p-8 shadow-soft border border-border hover:shadow-hard hover:scale-105 transition-all duration-700 cursor-pointer ${
+        animation.isVisible 
+          ? 'opacity-100 translate-x-0' 
+          : `opacity-0 ${isLeft ? '-translate-x-12' : 'translate-x-12'}`
+      }`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <div className="flex flex-col md:flex-row gap-6">
+        {/* Icon & Type */}
+        <div className="flex md:flex-col items-center md:items-start gap-4 md:gap-2">
+          <div className="p-4 bg-primary/10 rounded-xl">
+            <Icon className="h-8 w-8 text-primary" />
+          </div>
+          <div className="md:text-center">
+            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              {project.type}
+            </span>
+          </div>
+        </div>
+
+        <div className="flex-1 space-y-4">
+          {/* Title */}
+          <h3 className="text-2xl md:text-3xl font-bold">{project.title}</h3>
+
+          {/* Metrics */}
+          <div className="flex flex-wrap gap-4">
+            {project.metrics.map((metric, i) => (
+              <div 
+                key={i}
+                className={`px-4 py-2 rounded-lg ${
+                  metric.color === 'primary' 
+                    ? 'bg-primary/10 text-primary' 
+                    : metric.color === 'secondary' 
+                    ? 'bg-secondary/10 text-secondary' 
+                    : 'bg-accent/10 text-accent'
+                }`}
+              >
+                <div className="text-xl md:text-2xl font-bold">{metric.value}</div>
+                <div className="text-xs font-medium opacity-80">{metric.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Achievements */}
+          <ul className="space-y-2 text-muted-foreground">
+            {project.achievements.map((achievement, i) => (
+              <li key={i} className="flex gap-2 text-sm md:text-base">
+                <span className="text-primary mt-1 flex-shrink-0">•</span>
+                <span>{achievement}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
   );
 };
 

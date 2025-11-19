@@ -1,4 +1,5 @@
 import { Target, BarChart3, Share2, TrendingUp } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const skillCategories = [
   {
@@ -56,12 +57,21 @@ const skillCategories = [
 ];
 
 const Skills = () => {
+  const headerAnimation = useScrollAnimation();
+
   return (
     <section className="py-20 md:py-32 bg-muted/30" id="skills">
       <div className="container px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16 animate-fade-in-up">
+          <div 
+            ref={headerAnimation.ref}
+            className={`text-center mb-16 transition-all duration-700 ${
+              headerAnimation.isVisible 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Skills & <span className="gradient-text">Expertise</span>
             </h2>
@@ -73,50 +83,61 @@ const Skills = () => {
 
           {/* Skills Grid */}
           <div className="grid md:grid-cols-2 gap-6">
-            {skillCategories.map((category, index) => {
-              const Icon = category.icon;
-              return (
-                <div 
-                  key={index}
-                  className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-hard hover:scale-105 transition-all duration-300 cursor-pointer animate-scale-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className={`p-3 rounded-xl ${
-                      category.color === 'primary' 
-                        ? 'bg-primary/10' 
-                        : category.color === 'secondary' 
-                        ? 'bg-secondary/10' 
-                        : 'bg-accent/10'
-                    }`}>
-                      <Icon className={`h-6 w-6 ${
-                        category.color === 'primary' 
-                          ? 'text-primary' 
-                          : category.color === 'secondary' 
-                          ? 'text-secondary' 
-                          : 'text-accent'
-                      }`} />
-                    </div>
-                    <h3 className="text-2xl font-bold">{category.title}</h3>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill, i) => (
-                      <span 
-                        key={i}
-                        className="px-4 py-2 bg-muted rounded-lg text-sm font-medium hover:bg-muted/70 transition-smooth cursor-default"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
+            {skillCategories.map((category, index) => (
+              <SkillCard key={index} category={category} index={index} />
+            ))}
           </div>
         </div>
       </div>
     </section>
+  );
+};
+
+const SkillCard = ({ category, index }: { category: typeof skillCategories[0], index: number }) => {
+  const animation = useScrollAnimation();
+  const Icon = category.icon;
+  const isLeft = index % 2 === 0;
+
+  return (
+    <div 
+      ref={animation.ref}
+      className={`bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-hard hover:scale-105 transition-all duration-700 cursor-pointer ${
+        animation.isVisible 
+          ? 'opacity-100 translate-x-0' 
+          : `opacity-0 ${isLeft ? '-translate-x-12' : 'translate-x-12'}`
+      }`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <div className="flex items-center gap-4 mb-6">
+        <div className={`p-3 rounded-xl ${
+          category.color === 'primary' 
+            ? 'bg-primary/10' 
+            : category.color === 'secondary' 
+            ? 'bg-secondary/10' 
+            : 'bg-accent/10'
+        }`}>
+          <Icon className={`h-6 w-6 ${
+            category.color === 'primary' 
+              ? 'text-primary' 
+              : category.color === 'secondary' 
+              ? 'text-secondary' 
+              : 'text-accent'
+          }`} />
+        </div>
+        <h3 className="text-2xl font-bold">{category.title}</h3>
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        {category.skills.map((skill, i) => (
+          <span 
+            key={i}
+            className="px-4 py-2 bg-muted rounded-lg text-sm font-medium hover:bg-muted/70 transition-smooth cursor-default"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
   );
 };
 

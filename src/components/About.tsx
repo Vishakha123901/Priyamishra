@@ -1,11 +1,23 @@
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 const About = () => {
+  const leftAnimation = useScrollAnimation();
+  const rightAnimation = useScrollAnimation();
+
   return (
     <section className="py-20 md:py-32 bg-muted/30" id="about">
       <div className="container px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Avatar Design */}
-            <div className="order-2 md:order-1 animate-slide-in-left">
+            <div 
+              ref={leftAnimation.ref}
+              className={`order-2 md:order-1 transition-all duration-700 ${
+                leftAnimation.isVisible 
+                  ? 'opacity-100 translate-x-0' 
+                  : 'opacity-0 -translate-x-12'
+              }`}
+            >
               <div className="relative">
                 <div className="absolute -inset-4 gradient-bg-primary rounded-3xl blur-2xl opacity-20" />
                 <div className="relative rounded-3xl shadow-hard w-full aspect-square gradient-bg-primary flex items-center justify-center border-4 border-background overflow-hidden">
@@ -29,7 +41,14 @@ const About = () => {
             </div>
 
             {/* Content */}
-            <div className="order-1 md:order-2 space-y-6 animate-slide-in-right">
+            <div 
+              ref={rightAnimation.ref}
+              className={`order-1 md:order-2 space-y-6 transition-all duration-700 ${
+                rightAnimation.isVisible 
+                  ? 'opacity-100 translate-x-0' 
+                  : 'opacity-0 translate-x-12'
+              }`}
+            >
               <div>
                 <h2 className="text-4xl md:text-5xl font-bold mb-4">
                   About <span className="gradient-text">Me</span>
