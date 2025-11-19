@@ -1,7 +1,7 @@
 import { Mail, Phone, Linkedin, Heart, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import logo from "/logo.png";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

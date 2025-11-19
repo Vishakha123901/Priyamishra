@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Mail, Linkedin } from "lucide-react";
-import logo from "/logo.png";
+import logo from "@/assets/logo.png";
 
 const navigation = [
   { name: "About", href: "#about" },
