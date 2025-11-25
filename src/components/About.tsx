@@ -47,8 +47,8 @@ const About = () => {
                       <Award className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <div className="text-sm font-semibold">Employee of</div>
-                      <div className="text-xs text-muted-foreground">the Quarter</div>
+                      <div className="text-sm font-semibold text-primary">Employee of</div>
+                      <div className="text-xs text-black dark:text-white">the Quarter</div>
                     </div>
                   </div>
                 </div>
@@ -75,15 +75,15 @@ const About = () => {
                 <div className="w-20 h-1 gradient-bg-primary rounded-full" />
               </div>
 
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-white dark:text-white leading-relaxed">
                 Performance-driven Social Media Marketing Specialist with{" "}
                 <span className="text-primary font-semibold">2+ years of experience</span> in
                 paid campaigns, lead generation, and social media growth.
               </p>
 
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-white dark:text-white leading-relaxed">
                 Skilled in{" "}
-                <span className="text-secondary font-semibold">
+                <span className="text-primary font-semibold">
                   Google Ads, Meta Ads Manager, LinkedIn Ads
                 </span>
                 , and Sales Navigator, with proven ability to generate high-quality B2B & B2C
@@ -101,8 +101,8 @@ const About = () => {
                     </div>
                     <div className="text-2xl font-bold gradient-text">5x-6x</div>
                   </div>
-                  <div className="text-sm font-semibold">Average ROI</div>
-                  <div className="text-xs text-muted-foreground">Delivered consistently</div>
+                  <div className="text-sm font-semibold text-primary">Average ROI</div>
+                  <div className="text-xs text-black dark:text-white">Delivered consistently</div>
                 </div>
 
                 <div className="bg-card rounded-xl p-5 border border-border shadow-soft hover:shadow-medium hover:scale-105 transition-all duration-300 cursor-pointer group">
@@ -112,8 +112,8 @@ const About = () => {
                     </div>
                     <div className="text-2xl font-bold gradient-text">10+</div>
                   </div>
-                  <div className="text-sm font-semibold">Client Brands</div>
-                  <div className="text-xs text-muted-foreground">Successfully managed</div>
+                  <div className="text-sm font-semibold text-primary">Client Brands</div>
+                  <div className="text-xs text-black dark:text-white">Successfully managed</div>
                 </div>
               </div>
 
@@ -122,15 +122,15 @@ const About = () => {
                 <div className="flex items-center gap-2 px-4 py-2 bg-muted rounded-lg">
                   <span className="text-lg">📍</span>
                   <div>
-                    <div className="text-sm font-semibold">Delhi, India</div>
-                    <div className="text-xs text-muted-foreground">Based in</div>
+                    <div className="text-sm font-semibold text-primary">Delhi, India</div>
+                    <div className="text-xs text-black dark:text-white">Based in</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 px-4 py-2 bg-muted rounded-lg">
                   <span className="text-lg">🎓</span>
                   <div>
-                    <div className="text-sm font-semibold">B.Sc. (2022-2025)</div>
-                    <div className="text-xs text-muted-foreground">Education</div>
+                    <div className="text-sm font-semibold text-primary">B.Sc. (2022-2025)</div>
+                    <div className="text-xs text-black dark:text-white">Education</div>
                   </div>
                 </div>
               </div>

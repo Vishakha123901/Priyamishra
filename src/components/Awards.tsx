@@ -33,7 +33,7 @@ const Awards = () => {
               Awards & <span className="gradient-text">Achievements</span>
             </h2>
             <div className="w-20 h-1 gradient-bg-primary rounded-full mx-auto mb-4" />
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-black dark:text-white text-lg max-w-2xl mx-auto">
               Recognized for excellence and outstanding contributions in digital marketing
             </p>
           </div>
@@ -90,7 +90,7 @@ const Awards = () => {
                       ))}
                     </div>
 
-                    <h3 className="text-3xl md:text-4xl font-bold mb-3 group-hover:text-primary transition-colors">
+                    <h3 className="text-3xl md:text-4xl font-bold mb-3 text-black dark:text-white transition-colors">
                       Employee of the Quarter
                     </h3>
 
@@ -101,15 +101,15 @@ const Awards = () => {
                       </p>
                     </div>
 
-                    <p className="text-muted-foreground leading-relaxed max-w-2xl">
+                    <p className="text-black dark:text-white leading-relaxed max-w-2xl">
                       Recognized for{" "}
-                      <span className="text-foreground font-semibold">
+                      <span className="text-black dark:text-white font-semibold">
                         outstanding performance
                       </span>
                       , exceptional contribution to team success, and consistently exceeding goals
                       and expectations. Demonstrated excellence in social media management and
                       campaign execution, driving{" "}
-                      <span className="text-foreground font-semibold">measurable results</span>{" "}
+                      <span className="text-black dark:text-white font-semibold">measurable results</span>{" "}
                       across multiple client accounts.
                     </p>
                   </div>
@@ -142,8 +142,8 @@ const Awards = () => {
                     <div className="text-3xl font-bold gradient-text">5x-6x</div>
                   </div>
                 </div>
-                <h4 className="text-sm font-semibold mb-1">Average ROI</h4>
-                <p className="text-xs text-muted-foreground">Consistently Delivered</p>
+                <h4 className="text-sm font-semibold mb-1 text-primary">Average ROI</h4>
+                <p className="text-xs text-black dark:text-white">Consistently Delivered</p>
               </div>
             </div>
 
@@ -162,8 +162,8 @@ const Awards = () => {
                     <div className="text-3xl font-bold gradient-text">10+</div>
                   </div>
                 </div>
-                <h4 className="text-sm font-semibold mb-1">Client Campaigns</h4>
-                <p className="text-xs text-muted-foreground">Successfully Managed</p>
+                <h4 className="text-sm font-semibold mb-1 text-primary">Client Campaigns</h4>
+                <p className="text-xs text-black dark:text-white">Successfully Managed</p>
               </div>
             </div>
 
@@ -182,8 +182,8 @@ const Awards = () => {
                     <div className="text-3xl font-bold gradient-text">Top Voice</div>
                   </div>
                 </div>
-                <h4 className="text-sm font-semibold mb-1">LinkedIn Recognition</h4>
-                <p className="text-xs text-muted-foreground">Industry Leader</p>
+                <h4 className="text-sm font-semibold mb-1 text-primary">LinkedIn Recognition</h4>
+                <p className="text-xs text-black dark:text-white">Industry Leader</p>
               </div>
             </div>
           </div>

@@ -1,23 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Linkedin, Phone, ArrowRight, Sparkles, TrendingUp, Users } from "lucide-react";
+import heroBg from "@/assets/Gemini_Generated_Image_fz4n8cfz4n8cfz4n.png";
+import profileImg from "@/assets/priya-profile.jpg";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Modern Gradient Background */}
+      {/* Full Background Image */}
       <div className="absolute inset-0 z-0">
-        {/* Base gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/30 to-background" />
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        />
         
-        {/* Animated gradient mesh */}
-        <div className="absolute inset-0 opacity-40">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" />
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-secondary/30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-accent/30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        </div>
-
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+        {/* Subtle overlay for better readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/70 to-background/80" />
       </div>
 
       {/* Floating elements */}
@@ -46,7 +44,7 @@ const Hero = () => {
                   <span className="block text-foreground">Hi, I'm</span>
                   <span className="block gradient-text mt-2">Priya Mishra</span>
                 </h1>
-                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                <p className="text-xl md:text-2xl text-black dark:text-white leading-relaxed">
                   Transforming brands through data-driven campaigns and strategic marketing excellence
                 </p>
               </div>
@@ -55,15 +53,15 @@ const Hero = () => {
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="text-muted-foreground">5x-6x ROI Delivered</span>
+                  <span className="text-black dark:text-white">5x-6x ROI Delivered</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" style={{ animationDelay: '0.5s' }} />
-                  <span className="text-muted-foreground">1200+ Leads Generated</span>
+                  <span className="text-black dark:text-white">1200+ Leads Generated</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <div className="w-2 h-2 rounded-full bg-accent animate-pulse" style={{ animationDelay: '1s' }} />
-                  <span className="text-muted-foreground">8.9M Campaign Views</span>
+                  <span className="text-black dark:text-white">8.9M Campaign Views</span>
                 </div>
               </div>
 
@@ -90,7 +88,7 @@ const Hero = () => {
               </div>
 
               {/* Contact Info */}
-              <div className="flex flex-wrap gap-6 pt-4 text-sm text-muted-foreground">
+              <div className="flex flex-wrap gap-6 pt-4 text-sm text-black dark:text-white">
                 <a href="mailto:priyamishra242509pm@gmail.com" className="flex items-center gap-2 hover:text-primary transition-smooth group">
                   <Mail className="h-4 w-4 group-hover:scale-110 transition-transform" />
                   priyamishra242509pm@gmail.com
@@ -112,11 +110,11 @@ const Hero = () => {
                   </div>
                   <div className="text-right">
                     <div className="text-4xl font-bold gradient-text">2+</div>
-                    <div className="text-sm text-muted-foreground mt-1">Years</div>
+                    <div className="text-sm text-black dark:text-white mt-1">Years</div>
                   </div>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Professional Experience</h3>
-                <p className="text-sm text-muted-foreground">Delivering exceptional results across diverse industries</p>
+                <p className="text-sm text-black dark:text-white">Delivering exceptional results across diverse industries</p>
               </div>
 
               {/* Stat Card 2 */}
@@ -125,7 +123,7 @@ const Hero = () => {
                   <Users className="h-6 w-6 text-secondary" />
                 </div>
                 <div className="text-3xl font-bold gradient-text mb-1">1200+</div>
-                <div className="text-sm text-muted-foreground">Quality Leads</div>
+                <div className="text-sm text-black dark:text-white">Quality Leads</div>
               </div>
 
               {/* Stat Card 3 */}
@@ -134,17 +132,17 @@ const Hero = () => {
                   <Sparkles className="h-6 w-6 text-accent" />
                 </div>
                 <div className="text-3xl font-bold gradient-text mb-1">8.9M</div>
-                <div className="text-sm text-muted-foreground">Campaign Views</div>
+                <div className="text-sm text-black dark:text-white">Campaign Views</div>
               </div>
 
               {/* Expertise Badge */}
               <div className="col-span-2 bg-card/80 backdrop-blur-sm rounded-3xl p-6 shadow-soft border border-border hover:shadow-medium transition-all duration-300">
-                <h4 className="font-semibold mb-3 text-sm uppercase tracking-wider text-muted-foreground">Core Expertise</h4>
+                <h4 className="font-semibold mb-3 text-sm uppercase tracking-wider text-black dark:text-white">Core Expertise</h4>
                 <div className="flex flex-wrap gap-2">
                   {['Google Ads', 'Meta Ads', 'LinkedIn Ads', 'Lead Generation', 'Social Media', 'ROI Optimization'].map((skill, i) => (
                     <span 
                       key={i}
-                      className="px-3 py-1.5 bg-muted rounded-lg text-xs font-medium hover:bg-muted/70 transition-smooth cursor-default"
+                      className="px-3 py-1.5 bg-muted rounded-lg text-xs font-medium text-black dark:text-white hover:bg-muted/70 transition-smooth cursor-default"
                     >
                       {skill}
                     </span>

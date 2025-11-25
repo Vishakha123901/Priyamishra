@@ -110,11 +110,11 @@ const Projects = () => {
               <Briefcase className="h-4 w-4" />
               <span>Portfolio</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Projects & <span className="gradient-text">Case Studies</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white dark:text-white">
+              Projects & Case Studies
             </h2>
             <div className="w-20 h-1 gradient-bg-primary rounded-full mx-auto mb-4" />
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-white dark:text-white text-lg max-w-2xl mx-auto">
               Real results from strategic campaigns across diverse industries and platforms
             </p>
           </div>
@@ -167,7 +167,7 @@ const ProjectCard = ({
 
         <div className="flex-1 space-y-5">
           {/* Title */}
-          <h3 className="text-2xl md:text-3xl font-bold group-hover:text-primary transition-colors">
+          <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white transition-colors">
             {project.title}
           </h3>
 
@@ -203,7 +203,7 @@ const ProjectCard = ({
           </div>
 
           {/* Achievements */}
-          <ul className="space-y-3 text-muted-foreground">
+          <ul className="space-y-3 text-black dark:text-white">
             {project.achievements.map((achievement, i) => (
               <li key={i} className="flex gap-3 text-sm md:text-base">
                 <span className="text-primary mt-1 flex-shrink-0">

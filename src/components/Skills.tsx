@@ -63,7 +63,7 @@ const Skills = () => {
               Skills & <span className="gradient-text">Capabilities</span>
             </h2>
             <div className="w-20 h-1 gradient-bg-primary rounded-full mx-auto mb-4" />
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-black dark:text-white text-lg max-w-2xl mx-auto">
               Comprehensive digital marketing toolkit spanning paid advertising, analytics, and growth strategies
             </p>
           </div>
@@ -145,7 +145,7 @@ const SkillCard = ({
           </div>
 
           {/* Title */}
-          <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">
+          <h3 className="text-xl font-bold mb-4 text-black dark:text-white group-hover:text-primary transition-colors">
             {category.title}
           </h3>
 
@@ -154,7 +154,7 @@ const SkillCard = ({
             {category.skills.map((skill, i) => (
               <span
                 key={i}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 bg-background/50 backdrop-blur-sm rounded-lg text-xs font-medium border border-border/50 hover:border-primary/50 hover:scale-105 transition-all duration-200 ${
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 bg-background/50 backdrop-blur-sm rounded-lg text-xs font-medium text-primary border border-border/50 hover:border-primary/50 hover:scale-105 transition-all duration-200 ${
                   isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
                 }`}
                 style={{ transitionDelay: `${index * 150 + i * 50}ms` }}

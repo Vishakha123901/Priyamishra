@@ -53,13 +53,13 @@ const Experience = () => {
   const headerAnimation = useScrollAnimation();
 
   return (
-    <section className="py-20 md:py-32 bg-background" id="experience">
+    <section className="py-12 md:py-20 bg-background" id="experience">
       <div className="container px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div
             ref={headerAnimation.ref}
-            className={`text-center mb-16 transition-all duration-700 ${
+            className={`text-center mb-10 transition-all duration-700 ${
               headerAnimation.isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
@@ -73,7 +73,7 @@ const Experience = () => {
               Work <span className="gradient-text">Experience</span>
             </h2>
             <div className="w-20 h-1 gradient-bg-primary rounded-full mx-auto mb-4" />
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-white dark:text-white text-lg max-w-2xl mx-auto">
               Track record of delivering results through strategic campaigns and data-driven
               optimization
             </p>
@@ -85,7 +85,7 @@ const Experience = () => {
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent transform -translate-x-1/2" />
 
             {/* Experience items */}
-            <div className="space-y-12">
+            <div className="space-y-8">
               {experiences.map((exp, index) => (
                 <ExperienceItem key={index} exp={exp} index={index} />
               ))}
@@ -125,12 +125,12 @@ const ExperienceItem = ({
         {/* Content */}
         <div className={isLeft ? "md:text-right md:pr-8" : "md:col-start-2 md:pl-8"}>
           <div
-            className={`bg-card rounded-3xl p-6 md:p-8 shadow-soft border border-border hover:shadow-hard hover:scale-105 transition-all duration-300 cursor-pointer group ${
+            className={`bg-card rounded-2xl p-5 md:p-6 shadow-soft border border-border hover:shadow-hard hover:scale-105 transition-all duration-300 cursor-pointer group ${
               isLeft ? "" : ""
             }`}
           >
             {/* Header */}
-            <div className={`flex items-start gap-4 mb-6 ${isLeft ? "md:flex-row-reverse" : ""}`}>
+            <div className={`flex items-start gap-3 mb-4 ${isLeft ? "md:flex-row-reverse" : ""}`}>
               <div
                 className={`p-3 rounded-xl group-hover:scale-110 transition-transform ${
                   exp.color === "primary"
@@ -152,7 +152,7 @@ const ExperienceItem = ({
               </div>
               <div className={`flex-1 ${isLeft ? "md:text-right" : ""}`}>
                 <div className="flex items-center gap-2 mb-2">
-                  <h3 className="text-xl md:text-2xl font-bold">{exp.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-black dark:text-white">{exp.title}</h3>
                   {exp.current && (
                     <span className="px-2 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full border border-primary/20">
                       Current
@@ -161,15 +161,15 @@ const ExperienceItem = ({
                 </div>
                 <p className="text-lg font-semibold text-primary mb-3">{exp.company}</p>
                 <div
-                  className={`flex flex-wrap gap-3 text-sm text-muted-foreground ${
+                  className={`flex flex-wrap gap-3 text-sm ${
                     isLeft ? "md:justify-end" : ""
                   }`}
                 >
-                  <span className="flex items-center gap-1.5 px-3 py-1 bg-muted rounded-lg">
+                  <span className="flex items-center gap-1.5 px-3 py-1 bg-muted rounded-lg text-primary">
                     <Calendar className="h-4 w-4" />
                     {exp.period}
                   </span>
-                  <span className="flex items-center gap-1.5 px-3 py-1 bg-muted rounded-lg">
+                  <span className="flex items-center gap-1.5 px-3 py-1 bg-muted rounded-lg text-primary">
                     <MapPin className="h-4 w-4" />
                     {exp.location}
                   </span>
@@ -178,10 +178,10 @@ const ExperienceItem = ({
             </div>
 
             {/* Divider */}
-            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-6" />
+            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-4" />
 
             {/* Achievements */}
-            <ul className={`space-y-3 text-muted-foreground ${isLeft ? "md:text-right" : ""}`}>
+            <ul className={`space-y-2 text-black dark:text-white ${isLeft ? "md:text-right" : ""}`}>
               {exp.achievements.map((achievement, i) => (
                 <li key={i} className={`flex gap-3 text-sm md:text-base ${isLeft ? "md:flex-row-reverse" : ""}`}>
                   <span

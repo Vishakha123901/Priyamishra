@@ -33,7 +33,7 @@ const Contact = () => {
               Let's <span className="gradient-text">Connect</span>
             </h2>
             <div className="w-20 h-1 gradient-bg-primary rounded-full mx-auto mb-4" />
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-white dark:text-white text-lg max-w-2xl mx-auto">
               Ready to elevate your digital marketing strategy? Let's discuss how we can drive results together
             </p>
           </div>
@@ -55,10 +55,10 @@ const Contact = () => {
                     <Mail className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Email</h3>
+                    <h3 className="font-semibold mb-1 text-black dark:text-white">Email</h3>
                     <a 
                       href="mailto:priyamishra242509pm@gmail.com"
-                      className="text-muted-foreground hover:text-primary transition-smooth"
+                      className="text-black dark:text-white hover:text-primary transition-smooth"
                     >
                       priyamishra242509pm@gmail.com
                     </a>
@@ -72,10 +72,10 @@ const Contact = () => {
                     <Phone className="h-6 w-6 text-secondary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Phone</h3>
+                    <h3 className="font-semibold mb-1 text-black dark:text-white">Phone</h3>
                     <a 
                       href="tel:+916307267385"
-                      className="text-muted-foreground hover:text-secondary transition-smooth"
+                      className="text-black dark:text-white hover:text-secondary transition-smooth"
                     >
                       +91 6307267385
                     </a>
@@ -89,12 +89,12 @@ const Contact = () => {
                     <Linkedin className="h-6 w-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">LinkedIn</h3>
+                    <h3 className="font-semibold mb-1 text-black dark:text-white">LinkedIn</h3>
                     <a 
                       href="https://linkedin.com/in/priya-mishra-35a827281"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-accent transition-smooth"
+                      className="text-black dark:text-white hover:text-accent transition-smooth"
                     >
                       linkedin.com/in/priya-mishra-35a827281
                     </a>
@@ -108,8 +108,8 @@ const Contact = () => {
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Location</h3>
-                    <p className="text-muted-foreground">Delhi, India</p>
+                    <h3 className="font-semibold mb-1 text-black dark:text-white">Location</h3>
+                    <p className="text-black dark:text-white">Delhi, India</p>
                   </div>
                 </div>
               </div>
@@ -127,27 +127,27 @@ const Contact = () => {
               <div className="h-full flex flex-col justify-between">
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-2xl font-bold mb-3">Ready to Work Together?</h3>
-                    <p className="text-muted-foreground">
+                    <h3 className="text-2xl font-bold mb-3 text-black dark:text-white">Ready to Work Together?</h3>
+                    <p className="text-black dark:text-white">
                       I specialize in delivering high-quality leads and measurable ROI through strategic 
                       digital marketing campaigns. Let's discuss your goals and create a winning strategy.
                     </p>
                   </div>
 
                   <div className="space-y-3 text-sm">
-                    <div className="flex items-center gap-2 text-muted-foreground">
+                    <div className="flex items-center gap-2 text-black dark:text-white">
                       <div className="w-2 h-2 rounded-full bg-primary" />
                       <span>Google Ads & Meta Ads Specialist</span>
                     </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
+                    <div className="flex items-center gap-2 text-black dark:text-white">
                       <div className="w-2 h-2 rounded-full bg-secondary" />
                       <span>LinkedIn B2B Lead Generation Expert</span>
                     </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
+                    <div className="flex items-center gap-2 text-black dark:text-white">
                       <div className="w-2 h-2 rounded-full bg-accent" />
                       <span>Social Media Growth Strategist</span>
                     </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
+                    <div className="flex items-center gap-2 text-black dark:text-white">
                       <div className="w-2 h-2 rounded-full bg-primary" />
                       <span>ROI-Focused Campaign Manager</span>
                     </div>

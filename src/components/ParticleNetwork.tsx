@@ -12,9 +12,9 @@ const ParticleNetwork: React.FC = () => {
 
         let animationFrameId: number;
         let particles: Particle[] = [];
-        const particleCount = 100;
-        const connectionDistance = 150;
-        const mouseDistance = 200;
+        const particleCount = 80;
+        const connectionDistance = 140;
+        const mouseDistance = 180;
 
         let mouseX = -1000;
         let mouseY = -1000;
@@ -29,9 +29,9 @@ const ParticleNetwork: React.FC = () => {
             constructor() {
                 this.x = Math.random() * canvas!.width;
                 this.y = Math.random() * canvas!.height;
-                this.vx = (Math.random() - 0.5) * 1.5;
-                this.vy = (Math.random() - 0.5) * 1.5;
-                this.size = Math.random() * 2 + 1;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.size = Math.random() * 1.5 + 0.5;
             }
 
             update() {
@@ -46,7 +46,7 @@ const ParticleNetwork: React.FC = () => {
                 if (!ctx) return;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
                 ctx.fill();
             }
         }
@@ -76,8 +76,8 @@ const ParticleNetwork: React.FC = () => {
 
                     if (distance < connectionDistance) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / connectionDistance})`;
-                        ctx.lineWidth = 0.5;
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - distance / connectionDistance) * 0.4})`;
+                        ctx.lineWidth = 0.4;
                         ctx.moveTo(particle.x, particle.y);
                         ctx.lineTo(otherParticle.x, otherParticle.y);
                         ctx.stroke();
@@ -91,8 +91,8 @@ const ParticleNetwork: React.FC = () => {
 
                 if (distance < mouseDistance) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / mouseDistance})`;
-                    ctx.lineWidth = 0.8;
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - distance / mouseDistance) * 0.5})`;
+                    ctx.lineWidth = 0.6;
                     ctx.moveTo(particle.x, particle.y);
                     ctx.lineTo(mouseX, mouseY);
                     ctx.stroke();
