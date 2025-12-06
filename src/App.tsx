@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 import ParticleNetwork from "@/components/ParticleNetwork";
+import CustomCursor from "@/components/CustomCursor";
 
 const queryClient = new QueryClient();
 
@@ -14,6 +15,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <ParticleNetwork />
+      <CustomCursor />
       <Toaster />
       <Sonner />
       <BrowserRouter>

@@ -12,9 +12,11 @@ const ParticleNetwork: React.FC = () => {
 
         let animationFrameId: number;
         let particles: Particle[] = [];
-        const particleCount = 80;
-        const connectionDistance = 140;
-        const mouseDistance = 180;
+        // Reduce particles on mobile for better performance
+        const isMobile = window.innerWidth < 768;
+        const particleCount = isMobile ? 30 : 80;
+        const connectionDistance = isMobile ? 100 : 140;
+        const mouseDistance = isMobile ? 120 : 180;
 
         let mouseX = -1000;
         let mouseY = -1000;
@@ -29,9 +31,10 @@ const ParticleNetwork: React.FC = () => {
             constructor() {
                 this.x = Math.random() * canvas!.width;
                 this.y = Math.random() * canvas!.height;
-                this.vx = (Math.random() - 0.5) * 0.8;
-                this.vy = (Math.random() - 0.5) * 0.8;
-                this.size = Math.random() * 1.5 + 0.5;
+                const speed = isMobile ? 0.5 : 0.8;
+                this.vx = (Math.random() - 0.5) * speed;
+                this.vy = (Math.random() - 0.5) * speed;
+                this.size = isMobile ? Math.random() * 1 + 0.3 : Math.random() * 1.5 + 0.5;
             }
 
             update() {
@@ -46,7 +49,8 @@ const ParticleNetwork: React.FC = () => {
                 if (!ctx) return;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+                const opacity = isMobile ? 0.3 : 0.5;
+                ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
                 ctx.fill();
             }
         }
@@ -76,8 +80,9 @@ const ParticleNetwork: React.FC = () => {
 
                     if (distance < connectionDistance) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - distance / connectionDistance) * 0.4})`;
-                        ctx.lineWidth = 0.4;
+                        const opacity = isMobile ? 0.2 : 0.4;
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - distance / connectionDistance) * opacity})`;
+                        ctx.lineWidth = isMobile ? 0.2 : 0.4;
                         ctx.moveTo(particle.x, particle.y);
                         ctx.lineTo(otherParticle.x, otherParticle.y);
                         ctx.stroke();
@@ -89,7 +94,8 @@ const ParticleNetwork: React.FC = () => {
                 const dy = particle.y - mouseY;
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < mouseDistance) {
+                // Disable mouse interaction on mobile for better performance
+                if (!isMobile && distance < mouseDistance) {
                     ctx.beginPath();
                     ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - distance / mouseDistance) * 0.5})`;
                     ctx.lineWidth = 0.6;

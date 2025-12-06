@@ -14,18 +14,18 @@ const About = () => {
             {/* Left - Image/Logo */}
             <div
               ref={leftAnimation.ref}
-              className={`order-2 md:order-1 transition-all duration-700 ${
+              className={`order-2 md:order-1 transition-all duration-700 flex justify-center md:justify-start ${
                 leftAnimation.isVisible
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 -translate-x-12"
               }`}
             >
-              <div className="relative">
+              <div className="relative max-w-md w-full">
                 {/* Glow effect */}
                 <div className="absolute -inset-4 gradient-bg-primary rounded-3xl blur-2xl opacity-20" />
                 
                 {/* Main card */}
-                <div className="relative rounded-3xl shadow-hard w-full aspect-square bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 flex items-center justify-center border-4 border-background overflow-hidden">
+                <div className="relative shadow-hard w-full aspect-square bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 flex items-center justify-center border-4 border-background overflow-hidden">
                   {/* Decorative circles */}
                   <div className="absolute top-10 right-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
                   <div className="absolute bottom-10 left-10 w-40 h-40 bg-secondary/20 rounded-full blur-3xl" />
@@ -41,7 +41,7 @@ const About = () => {
                 </div>
 
                 {/* Achievement badge */}
-                <div className="absolute -bottom-6 -right-6 bg-card rounded-2xl p-6 shadow-hard border border-border hover:scale-110 transition-transform cursor-pointer">
+                <div className="absolute -bottom-4 md:-bottom-6 left-1/2 md:left-auto md:-right-6 transform -translate-x-1/2 md:translate-x-0 bg-card p-4 md:p-6 shadow-hard border border-border hover:scale-110 transition-transform cursor-pointer">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-primary/10 rounded-lg">
                       <Award className="h-6 w-6 text-primary" />
@@ -94,7 +94,7 @@ const About = () => {
 
               {/* Key Stats */}
               <div className="grid grid-cols-2 gap-4 pt-4">
-                <div className="bg-card rounded-xl p-5 border border-border shadow-soft hover:shadow-medium hover:scale-105 transition-all duration-300 cursor-pointer group">
+                <div className="bg-card p-5 border border-border shadow-soft hover:shadow-medium hover:scale-105 transition-all duration-300 cursor-pointer group">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="p-2 bg-primary/10 rounded-lg group-hover:scale-110 transition-transform">
                       <Target className="h-5 w-5 text-primary" />

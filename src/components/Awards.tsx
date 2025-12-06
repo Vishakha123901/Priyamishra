@@ -7,7 +7,7 @@ const Awards = () => {
   const statsAnimation = useScrollAnimation();
 
   return (
-    <section className="py-20 md:py-32 bg-muted/30 relative overflow-hidden" id="awards">
+    <section className="py-10 md:py-32 bg-muted/30 relative overflow-hidden" id="awards">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
@@ -19,11 +19,10 @@ const Awards = () => {
           {/* Header */}
           <div
             ref={headerAnimation.ref}
-            className={`text-center mb-16 transition-all duration-700 ${
-              headerAnimation.isVisible
+            className={`text-center mb-16 transition-all duration-700 ${headerAnimation.isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
-            }`}
+              }`}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4">
               <Trophy className="h-4 w-4" />
@@ -41,43 +40,42 @@ const Awards = () => {
           {/* Main Award - Featured */}
           <div
             ref={mainAwardAnimation.ref}
-            className={`mb-12 transition-all duration-700 ${
-              mainAwardAnimation.isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
-            }`}
+            className={`mb-6 md:mb-12 transition-all duration-700 ${mainAwardAnimation.isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+              }`}
           >
             <div className="relative">
-              {/* Glow effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent/20 to-secondary/20 rounded-3xl blur-2xl opacity-60 animate-pulse" />
+              {/* Glow effect - Hidden on mobile */}
+              <div className="hidden md:block absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent/20 to-secondary/20 rounded-3xl blur-2xl opacity-60 animate-pulse" />
 
               {/* Main Card */}
-              <div className="relative bg-gradient-to-br from-card via-card to-card/95 rounded-3xl p-8 md:p-12 shadow-hard border border-border overflow-hidden group hover:scale-105 transition-all duration-500 cursor-pointer">
+              <div className="relative bg-gradient-to-br from-card via-card to-card/95 p-4 md:p-8 lg:p-12 shadow-hard border border-border overflow-hidden group hover:scale-105 transitiouration-500 cursor-pointer">
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
 
-                <div className="relative z-10 grid md:grid-cols-[auto_1fr] gap-8 items-center">
+                <div className="relative z-10 grid md:grid-cols-[auto_1fr] gap-4 md:gap-8 items-center">
                   {/* Trophy Icon */}
                   <div className="flex justify-center md:justify-start">
                     <div className="relative">
-                      {/* Rotating ring */}
-                      <div className="absolute inset-0 rounded-full border-4 border-primary/20 animate-spin" style={{ animationDuration: '8s' }} />
-                      <div className="absolute inset-2 rounded-full border-4 border-accent/20 animate-spin" style={{ animationDuration: '6s', animationDirection: 'reverse' }} />
-                      
+                      {/* Rotating ring - Hidden on mobile */}
+                      <div className="hidden md:block absolute inset-0 rounded-full border-4 border-primary/20 animate-spin" style={{ animationDuration: '8s' }} />
+                      <div className="hidden md:block absolute inset-2 rounded-full border-4 border-accent/20 animate-spin" style={{ animationDuration: '6s', animationDirection: 'reverse' }} />
+
                       {/* Center icon */}
-                      <div className="relative w-32 h-32 md:w-40 md:h-40 gradient-bg-primary rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
-                        <Crown className="h-16 w-16 md:h-20 md:w-20 text-white" />
+                      <div className="relative w-20 h-20 md:w-32 lg:w-40 md:h-32 lg:h-40 gradient-bg-primary rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
+                        <Crown className="h-10 w-10 md:h-16 lg:h-20 md:w-16 lg:w-20 text-white" />
                       </div>
 
-                      {/* Sparkles */}
-                      <Sparkles className="absolute -top-2 -right-2 h-8 w-8 text-accent animate-pulse" />
-                      <Sparkles className="absolute -bottom-2 -left-2 h-6 w-6 text-primary animate-pulse" style={{ animationDelay: '0.5s' }} />
+                      {/* Sparkles - Hidden on mobile */}
+                      <Sparkles className="hidden md:block absolute -top-2 -right-2 h-8 w-8 text-accent animate-pulse" />
+                      <Sparkles className="hidden md:block absolute -bottom-2 -left-2 h-6 w-6 text-primary animate-pulse" style={{ animationDelay: '0.5s' }} />
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="text-center md:text-left">
                     {/* Stars */}
-                    <div className="flex items-center justify-center md:justify-start gap-1 mb-4">
+                    <div className="hidden md:flex items-center justify-center md:justify-start gap-1 mb-4">
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
@@ -90,18 +88,18 @@ const Awards = () => {
                       ))}
                     </div>
 
-                    <h3 className="text-3xl md:text-4xl font-bold mb-3 text-black dark:text-white transition-colors">
+                    <h3 className="text-2xl md:text-4xl font-bold mb-3 text-black dark:text-white transition-colors">
                       Employee of the Quarter
                     </h3>
 
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
+                    <div className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
                       <Medal className="h-5 w-5 text-primary" />
                       <p className="text-lg font-semibold text-primary">
                         Spill Your Thought
                       </p>
                     </div>
 
-                    <p className="text-black dark:text-white leading-relaxed max-w-2xl">
+                    <p className="text-sm md:text-base text-black dark:text-white leading-relaxed max-w-2xl">
                       Recognized for{" "}
                       <span className="text-black dark:text-white font-semibold">
                         outstanding performance
@@ -121,11 +119,10 @@ const Awards = () => {
           {/* Achievement Stats */}
           <div
             ref={statsAnimation.ref}
-            className={`grid md:grid-cols-3 gap-6 transition-all duration-700 ${
-              statsAnimation.isVisible
+            className={`grid md:grid-cols-3 gap-3 md:gap-6 transition-all duration-700 ${statsAnimation.isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
-            }`}
+              }`}
           >
             {/* Stat 1 */}
             <div

@@ -125,7 +125,7 @@ const ExperienceItem = ({
         {/* Content */}
         <div className={isLeft ? "md:text-right md:pr-8" : "md:col-start-2 md:pl-8"}>
           <div
-            className={`bg-card rounded-2xl p-5 md:p-6 shadow-soft border border-border hover:shadow-hard hover:scale-105 transition-all duration-300 cursor-pointer group ${
+            className={`bg-card p-5 md:p-6 shadow-soft border border-border hover:shadow-hard hover:scale-105 transition-all duration-300 cursor-pointer group ${
               isLeft ? "" : ""
             }`}
           >

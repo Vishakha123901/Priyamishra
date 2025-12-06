@@ -118,7 +118,7 @@ const Contact = () => {
             {/* CTA Card */}
             <div 
               ref={rightAnimation.ref}
-              className={`bg-card rounded-2xl p-8 shadow-soft border border-border transition-all duration-700 ${
+              className={`bg-card p-8 shadow-soft border border-border transition-all duration-700 ${
                 rightAnimation.isVisible 
                   ? 'opacity-100 translate-x-0' 
                   : 'opacity-0 translate-x-12'

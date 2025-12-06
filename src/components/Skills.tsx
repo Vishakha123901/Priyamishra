@@ -109,7 +109,7 @@ const SkillCard = ({
       style={{ transitionDelay: `${index * 150}ms` }}
     >
       {/* Card */}
-      <div className={`relative bg-gradient-to-br ${category.gradient} backdrop-blur-sm rounded-3xl p-6 border border-border shadow-soft hover:shadow-hard transition-all duration-300 hover:scale-105 cursor-pointer h-full`}>
+      <div className={`relative bg-gradient-to-br ${category.gradient} backdrop-blur-sm p-6 border border-border shadow-soft hover:shadow-hard transition-all duration-300 hover:scale-105 cursor-pointer h-full`}>
         {/* Glow effect on hover */}
         <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl ${
           category.color === "primary"
