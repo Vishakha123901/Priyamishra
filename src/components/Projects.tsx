@@ -138,37 +138,37 @@ const ProjectCard = ({
   return (
     <div
       ref={animation.ref}
-      className={`bg-card p-6 md:p-8 shadow-soft border border-border hover:shadow-hard transition-all duration-700 cursor-pointer group ${animation.isVisible
+      className={`bg-card p-4 md:p-6 shadow-soft border border-border hover:shadow-hard transition-all duration-700 cursor-pointer group ${animation.isVisible
           ? "opacity-100 translate-x-0"
           : `opacity-0 ${isLeft ? "-translate-x-12" : "translate-x-12"}`
         }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col md:flex-row gap-4 md:gap-6">
         {/* Icon & Type */}
-        <div className="flex md:flex-col items-center md:items-start gap-4 md:gap-3">
-          <div className="p-4 bg-primary/10 rounded-2xl group-hover:scale-110 transition-transform">
-            <Icon className="h-8 w-8 text-primary" />
+        <div className="flex md:flex-col items-center md:items-start gap-3 md:gap-2">
+          <div className="p-3 bg-primary/10 rounded-xl group-hover:scale-110 transition-transform">
+            <Icon className="h-6 w-6 md:h-7 md:w-7 text-primary" />
           </div>
           <div className="md:text-center">
-            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-3 py-1 bg-muted rounded-full">
+            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-2 py-1 bg-muted rounded-full">
               {project.type}
             </span>
           </div>
         </div>
 
-        <div className="flex-1 space-y-5">
+        <div className="flex-1 space-y-4">
           {/* Title */}
-          <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white transition-colors">
+          <h3 className="text-xl md:text-2xl font-bold text-black dark:text-white transition-colors">
             {project.title}
           </h3>
 
           {/* Metrics */}
-          <div className="flex flex-wrap gap-4">
+          <div className="flex gap-2 md:gap-3">
             {project.metrics.map((metric, i) => (
               <div
                 key={i}
-                className={`px-5 py-3 rounded-xl hover:scale-105 transition-transform ${metric.color === "primary"
+                className={`flex-1 px-2 md:px-3 py-2 rounded-lg hover:scale-105 transition-transform ${metric.color === "primary"
                     ? "bg-primary/10 border border-primary/20"
                     : metric.color === "secondary"
                       ? "bg-secondary/10 border border-secondary/20"
@@ -176,7 +176,7 @@ const ProjectCard = ({
                   }`}
               >
                 <div
-                  className={`text-2xl md:text-3xl font-bold mb-1 ${metric.color === "primary"
+                  className={`text-sm md:text-lg font-bold mb-1 ${metric.color === "primary"
                       ? "text-primary"
                       : metric.color === "secondary"
                         ? "text-secondary"
@@ -193,11 +193,11 @@ const ProjectCard = ({
           </div>
 
           {/* Achievements */}
-          <ul className="space-y-3 text-black dark:text-white">
+          <ul className="space-y-2 text-black dark:text-white">
             {project.achievements.map((achievement, i) => (
-              <li key={i} className="flex gap-3 text-sm md:text-base">
-                <span className="text-primary mt-1 flex-shrink-0">
-                  <Sparkles className="h-4 w-4" />
+              <li key={i} className="flex gap-2 text-sm">
+                <span className="text-primary mt-0.5 flex-shrink-0">
+                  <Sparkles className="h-3 w-3" />
                 </span>
                 <span>{achievement}</span>
               </li>

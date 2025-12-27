@@ -121,10 +121,10 @@ const SkillCard = ({
 
         {/* Content */}
         <div className="relative z-10">
-          {/* Icon */}
-          <div className="mb-6">
+          {/* Icon & Title - Side by side on mobile */}
+          <div className="flex items-center gap-4 mb-4">
             <div
-              className={`inline-flex p-4 rounded-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 ${
+              className={`inline-flex p-3 md:p-4 rounded-xl md:rounded-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 ${
                 category.color === "primary"
                   ? "bg-primary/20"
                   : category.color === "secondary"
@@ -133,7 +133,7 @@ const SkillCard = ({
               }`}
             >
               <Icon
-                className={`h-8 w-8 ${
+                className={`h-6 w-6 md:h-8 md:w-8 ${
                   category.color === "primary"
                     ? "text-primary"
                     : category.color === "secondary"
@@ -142,12 +142,11 @@ const SkillCard = ({
                 }`}
               />
             </div>
+            
+            <h3 className="text-lg md:text-xl font-bold text-black dark:text-white group-hover:text-primary transition-colors">
+              {category.title}
+            </h3>
           </div>
-
-          {/* Title */}
-          <h3 className="text-xl font-bold mb-4 text-black dark:text-white group-hover:text-primary transition-colors">
-            {category.title}
-          </h3>
 
           {/* Skills as tags */}
           <div className="flex flex-wrap gap-2">
