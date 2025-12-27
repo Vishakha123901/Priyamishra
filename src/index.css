@@ -315,12 +315,58 @@ html, body {
 /* Fix absolute positioning in Awards on mobile */
 @media (max-width: 768px) {
   #awards .absolute {
-    position: relative !important;
+ 
     inset: auto !important;
     transform: none !important;
   }
   
   #awards .animate-spin {
     display: none !important;
+  }
+}
+/* Hero Section - No Padding */
+section:first-of-type {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  section:first-of-type {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}/* Em
+ployee of the Quarter Card - Mobile Size Reduction */
+@media (max-width: 768px) {
+  #awards .relative.bg-gradient-to-br {
+    padding: 1rem !important;
+  }
+  
+  #awards .w-32.h-32 {
+    width: 4rem !important;
+    height: 4rem !important;
+  }
+  
+  #awards .md\\:w-40.md\\:h-40 {
+    width: 4rem !important;
+    height: 4rem !important;
+  }
+  
+  #awards .h-16.w-16 {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+  
+  #awards .md\\:h-20.md\\:w-20 {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+  
+  #awards .text-3xl.md\\:text-4xl {
+    font-size: 1.5rem !important;
+  }
+  
+  #awards .gap-4.md\\:gap-8 {
+    gap: 1rem !important;
   }
 }

@@ -1,29 +1,64 @@
+import { Button } from "@/components/ui/button";
+import { Mail, Linkedin, Phone, ArrowRight, Sparkles } from "lucide-react";
+
 const Hero = () => {
   return (
-    <section className="relative w-full max-w-full min-h-[100vh] md:min-h-[120vh] overflow-hidden bg-black flex items-center justify-center">
-      {/* Full Background Image */}
-      <div className="w-full max-w-full flex items-center justify-center py-10 md:pt-20 px-4 md:px-0">
+    <section className="relative w-full max-w-full bg-black">
+      {/* Desktop - Banner Image */}
+      <div className="hidden md:block w-full max-w-full">
         <img 
           src="https://res.cloudinary.com/dez7clpi8/image/upload/v1764699237/Screenshot_2025-12-02_234329_udxynn.png"
           alt="Hero Background"
-          className="w-full max-w-full md:max-w-[1920px] h-auto object-contain"
+          className="w-full h-auto object-cover block"
         />
       </div>
 
-      {/* Floating elements - Hidden on mobile */}
-      <div className="hidden md:block absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-20 h-20 border-2 border-primary/20 rounded-lg rotate-12 animate-float" />
-        <div className="absolute top-40 right-20 w-16 h-16 border-2 border-secondary/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-40 left-1/4 w-12 h-12 border-2 border-accent/20 rounded-lg -rotate-12 animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-20 right-1/3 w-24 h-24 border-2 border-primary/20 rounded-full animate-float" style={{ animationDelay: '1.5s' }} />
-      </div>
+      {/* Mobile - Text Content */}
+      <div className="block md:hidden min-h-screen flex items-center justify-center px-4 py-20">
+        <div className="text-center space-y-8 max-w-md mx-auto">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 text-white text-sm font-medium shadow-lg">
+            <Sparkles className="h-4 w-4" />
+            <span>Digital Marketing Expert</span>
+          </div>
 
+          {/* Main Heading */}
+          <div className="space-y-4">
+            <h1 className="text-4xl font-bold tracking-tight leading-tight">
+              <span className="block text-white">PRIYA MISHRA</span>
+            </h1>
+            <h2 className="text-xl font-bold text-primary">
+              SOCIAL MEDIA MANAGER | DIGITAL MARKETING SPECIALIST | GROW BRANDS ONLINE
+            </h2>
+            <p className="text-lg text-white/90 leading-relaxed">
+              Turn clicks into customers with data-driven digital marketing strategies!
+            </p>
+          </div>
 
+          {/* Contact Button */}
+          <div className="pt-4">
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-white shadow-2xl hover:shadow-primary/50 transition-all hover:scale-105 group px-8 py-6 text-lg w-full"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              <Phone className="mr-2 h-5 w-5" />
+              CONTACT US
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-5 h-8 md:w-6 md:h-10 border-2 border-primary/50 rounded-full flex justify-center">
-          <div className="w-1 h-2 md:h-3 bg-primary rounded-full mt-2 animate-pulse" />
+          {/* Contact Info */}
+          <div className="space-y-3 pt-4">
+            <a href="mailto:priyamishra242509pm@gmail.com" className="flex items-center justify-center gap-2 text-white/80 hover:text-white transition-smooth">
+              <Mail className="h-4 w-4" />
+              priyamishra242509pm@gmail.com
+            </a>
+            <a href="tel:+916307267385" className="flex items-center justify-center gap-2 text-white/80 hover:text-white transition-smooth">
+              <Phone className="h-4 w-4" />
+              +916307267385
+            </a>
+          </div>
         </div>
       </div>
     </section>

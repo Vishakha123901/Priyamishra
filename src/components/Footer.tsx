@@ -152,16 +152,7 @@ const Footer = () => {
           <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
 
           {/* Bottom bar */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-gray-500">
-              <p>© {currentYear} Priya Mishra. All rights reserved.</p>
-              <span className="hidden md:block text-gray-700">•</span>
-              <p className="flex items-center gap-1.5">
-                Crafted with{" "}
-                <Heart className="h-4 w-4 text-red-500 fill-red-500 animate-pulse" />{" "}
-                for digital excellence
-              </p>
-            </div>
+          <div className="flex flex-col md:flex-row justify-end items-center gap-4">
 
             {/* Back to top button */}
             <Button
